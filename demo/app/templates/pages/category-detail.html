@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+   <!-- Main -->
+    
+    <div class="bg-white min-vh-100 pt-4">
+        <div class="container">
+        <!--Yakum seksiya-->
+            <h1>{{category.title}}</h1>
+            <hr class="bg-dark-light">
+            <div class="grid-4 gap-1 mt-4">
+                {% for product in category.category_products.all %}
+                <div class="px-3 py-2 shadow-2 rounded-2 ">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <img class=" w-50" src="{{product.image.url}}" alt="">
+                    </div>
+                    <div class="hr_2"></div>
+                    <p class="text-center text-ocean fs-19 ">{{product.title}} <br> E3041</p>
+                    <button class="btn btn-grey w-50 rounded-1 mx-auto">Заказать</button>
+                    <p class="fs-25 b-3 mb-2 mt-1">155$</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+ 
+ 
+ 
+ 
+ 
+ {% endblock %}

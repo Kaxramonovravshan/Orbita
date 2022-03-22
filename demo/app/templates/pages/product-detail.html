@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<!-- <div class="body_ bg-light pt-2 min-vh-100"> -->
+    
+<div class="container "> 
+        <div class="post-detail p-4 p-sm-1 shadow-2 rounded-1 bg-white">
+            <div class="grid-2 gap-1">
+                <div class=" d-flex align-items-start justify-content-center">
+                    <img class="w-65 bg-white object-fit" src="{{product.image.url}}" alt="">
+                </div>
+                {{product.content|safe}}
+            </div>
+        <button class="btn btn-light btn-md rounded-1 shadow-2 d-sm-none">О товаре</button>
+        <hr class="bg-dark-light mt-5">
+        <p class="fs-22">ИНФОРМАЦИЯ</p>
+        <div class="grid-4 gap-1 grid-sm-2">
+            <div class="card rounded-1 border-dark-light p-2 ">
+                <div class="grid-2 gap-1 grid-sm-2 ">
+                    <div class="fs-20 fs-sm-16 w-65 text-red">Доставка</div>
+                    <div class="w-35 ml-auto w-sm-100"><img  class="w-100" src="	https://static.orbitalock.uz/images/delivery.png" alt=""></div>
+                </div>
+                <div class="fs-16">условия доставки для городов Росии и СНГ</div>
+            </div>
+            <div class="card rounded-1 border-dark-light p-2 ">
+                <div class="grid-2 gap-1 grid-sm-2 ">
+                    <div class="fs-20 fs-sm-16 w-65 text-red">Оплата</div>
+                    <div class="w-35 ml-auto w-sm-75"><img  class="w-100" src=" https://static.orbitalock.uz/images/pay.png" alt=""></div>
+                </div>
+                <div class="fs-16">безналичным переводом</div>
+            </div>
+            <div class="card rounded-1 border-dark-light p-2 ">
+                <div class="grid-2 gap-1 grid-sm-2 ">
+                    <div class="fs-20 fs-sm-16 w-65 text-red">Установка</div>
+                    <div class="w-35 ml-auto w-sm-100"><img  class="w-100" src="	https://static.orbitalock.uz/images/settings.png" alt=""></div>
+                </div>
+                <div class="fs-16">надежно, в указанные сроки</div>
+            </div>
+            <div class="card rounded-1 border-dark-light p-2 ">
+                <div class="grid-2 gap-1 grid-sm-2 ">
+                    <div class="fs-20 fs-sm-16 w-65 text-red">Обслужив</div>
+                    <div class="w-35 ml-auto w-sm-100"><img  class="w-100" src="	https://static.orbitalock.uz/images/help.png" alt=""></div>
+                </div>
+                <div class="fs-16">круглосуточная поддержка</div>
+            </div>
+        </div>
+        </div>
+    
+<!-- </div> -->
+
+
+
+
+
+
+    
+</div>
+<div class="modal_ d-none">
+    <div class="modal w-25 p-4 bg-light rounded-1 shadow-1  w-sm-100 mx-sm-auto">
+        <p class="fs-22 text-center">Заявка</p>
+        <form action="{% url 'order_feedback' product.id %}" method="POST">
+        {% csrf_token %}
+        <label    for="">Type your phone number</label>
+        <input name="number_"   class="input my-2" id="phone-mask" type="number">            
+        <label   for="">Type your name</label>
+        <input name="name_"   class="input my-2" type="text">
+        <label   for="email">Type your email</label>
+        <input name="email"   class="input my-2" type="email">
+        <button class="btn btn-blue btn w-75 mx-auto mt-3 rounded-1 shadow-1">Отправить</button>
+        <button type="button" class="btn btn-red btn_close w-75 mx-auto mt-3 rounded-1 shadow-1">Закрыть</button>
+        </form>
+    </div>
+</div>
+ 
+ 
+ 
+ 
+
+ {% endblock %}
