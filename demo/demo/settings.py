@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^s%w7@ejf5++f(x=j1h6r1^u*n)#k455&ju))rbxjdfay945ge
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://127.0.0.1:8000/','Orbita.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','Orbita.pythonanywhere.com']
 
 
 # Application definition
@@ -132,4 +132,9 @@ AUTH_USER_MODEL = 'users.CustomUser'
 #         on_delete=models.CASCADE,
 #     )
 
-STATIC_ROOT = "/home/Orbita/Orbita/demo/static"
+import os
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
